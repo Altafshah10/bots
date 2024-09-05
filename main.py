@@ -172,7 +172,7 @@ async def check_bots():
                 
     end_time = time()
     log.info("Completed periodic checks.")
-    status_message = header_msg + f"• **Avaliable Bots :** {avl_bots} out of {totalBotsCount}\n\n"
+    status_message = header_msg + f"• **Avaliable Bots :** {avl_bots} out of {totalBotsCount}\n\n<blockquote>"
     for bot in bot_stats.keys():
         status_message += f"- **{await bot_info(bot_stats[bot]['bot_uname'])}: {bot_stats[bot]['status']}**\n"
     total_time = end_time - start_time
@@ -180,7 +180,7 @@ async def check_bots():
     tim = datetime.now(timezone(TIME_ZONE))
     date = tim.strftime("%d %b %Y")
     time2 = tim.strftime("%I:%M: %p")    
-    status_message += f"\n--Last checked on--: \n{date}\n{time2} ({TIME_ZONE})\n\n**Refreshes Automatically After Every 5 Min.**"
+    status_message += f"</blockquote>\n--Last checked on--: \n{date}\n{time2} ({TIME_ZONE})\n\n**Refreshes Automatically After Every 5 Min.**"
     await editStatusMsg(status_message)
 
 async def main():
